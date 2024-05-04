@@ -17,6 +17,7 @@ const emailExists = check('email').custom(async (value) => {
   const { rows } = await db.query('SELECT * from users WHERE email = $1', [
     value,
   ]);
+  console.log('dddddddddd', emailExists);
 
   if (rows.length) {
     throw new Error('Email already exists.');
